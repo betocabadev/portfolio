@@ -1,0 +1,17 @@
+/* WORK SECTION STYLES */
+
+.work {
+  position: relative;
+  background-color: var(--dark);
+  padding: 3rem 0;
+}
+.work-content {
+  text-align: center;
+}
+
+@media (max-width: 1294px) {
+}
+
+@media (max-width: 820px) {
+}
+/*# sourceMappingURL=main.css.map */

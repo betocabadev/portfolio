@@ -1,0 +1,56 @@
+/* HERO SECTION STYLES */
+
+.hero {
+  position: relative;
+  background: url(../images/background-light.jpg) center center no-repeat;
+  background-size: cover;
+  padding: 3rem 0;
+}
+
+.hero__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+}
+
+.hero__content-text,
+.hero__content-img {
+  width: 50%;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.hero__content-text {
+  padding-right: 15%;
+}
+
+.hero__content-img img {
+  display: block;
+  width: 100%;
+  max-height: 480px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1294px) {
+  .hero__content-text {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 820px) {
+  .hero__content {
+    flex-flow: column-reverse;
+    text-align: center;
+  }
+
+  .hero__content-text,
+  .hero__content-img {
+    width: 100%;
+  }
+  .hero__content-img img {
+    width: 85%;
+    max-width: 480px;
+  }
+}
+/*# sourceMappingURL=main.css.map */
