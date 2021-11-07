@@ -8,10 +8,21 @@
   --tertiary: hsl(160, 12%, 62%, 1);
   --tertiary-variant: hsl(160, 8%, 55%, 1);
   --white: hsl(348, 100%, 99%, 1);
+  --white-variant: hsl(348, 100%, 96%, 1);
+  --white-40: hsl(348, 100%, 99%, 0.4);
   --dark: hsl(180, 5%, 8%, 1);
+  --dark-30: hsl(180, 5%, 8%, 0.3);
+  --dark-50: hsl(180, 5%, 8%, 0.5);
+  --dark-80: hsl(180, 5%, 8%, 0.8);
+  --dark-gray: hsl(180, 8%, 16%, 1);
   --shadow: 2px 4px 12px hsla(180, 10%, 6%, 0.15);
   --shadow-variant: 3px 5px 16px hsla(180, 5%, 4%, 0.1);
   --btn-border: 2px;
+  --border-radius: 6px;
+  --transition-curve: cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-speed: 0.3s;
+
+  scroll-behavior: smooth;
 }
 
 * {
@@ -19,6 +30,18 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+
+::-webkit-scrollbar, ::-moz-scrollbar  {
+  background-color: var(--dark);
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+::-webkit-scrollbar-thumb, ::-moz-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 2rem;
 }
 
 body {
@@ -59,6 +82,19 @@ small {
   font-weight: 400;
 }
 
+p,
+li,
+dd {
+  color: var(--dark);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
 h1 {
   font-size: 3rem;
   line-height: 1.2;
@@ -67,6 +103,29 @@ h1 {
 h2 {
   font-size: 2.4rem;
   line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+h5 {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-bottom: 0.4rem;
 }
 
 .primary {
@@ -143,6 +202,7 @@ h2 {
   font-size: 1.1rem;
   letter-spacing: 2px;
   font-weight: 400;
+  color: var(--tertiary);
 }
 
 .title .underline {
@@ -170,35 +230,38 @@ h2 {
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center;
-  margin-top: 2rem;
+  justify-content: flex-start;
+  margin-top: 1rem;
 }
 
 .social-nav ul li {
-  margin-right: 0.8rem;
+  margin-right: 1rem;
 }
 
 .social-nav ul li a {
   display: -ms-grid;
   display: grid;
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   -ms-flex-line-pack: center;
   align-content: center;
   padding: 0.25rem;
-  -webkit-transition: -webkit-transform 200ms ease-out;
-  transition: -webkit-transform 200ms ease-out;
-  transition: transform 200ms ease-out;
-  transition: transform 200ms ease-out, -webkit-transform 200ms ease-out;
+  -webkit-transition: -webkit-transform var(--transition-speed)
+    var(--transition-curve);
+  transition: -webkit-transform var(--transition-speed) var(--transition-curve);
+  transition: transform var(--transition-speed) var(--transition-curve);
+  transition: transform var(--transition-speed) var(--transition-curve),
+    -webkit-transform var(--transition-speed) var(--transition-curve);
 }
 
 .social-nav ul li a svg {
-  width: 100%;
+  width: 100;
 }
 
 .social-nav ul li a svg path {
-  -webkit-transition: fill 200ms ease-in;
-  transition: fill 200ms ease-in;
+  fill: var(--dark);
+  -webkit-transition: fill var(--transition-speed) var(--transition-curve);
+  transition: fill var(--transition-speed) var(--transition-curve);
 }
 
 .social-nav ul li a:hover {
@@ -228,11 +291,13 @@ h2 {
 
 .btn--primary {
   background-color: var(--primary);
-  color: var(--white);
+  color: var(--dark);
   border: solid var(--btn-border) var(--primary);
   box-shadow: var(--shadow);
-  transition: background-color 0.2s ease-out, transform 0.2s ease-out,
-    box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+  transition: background-color var(--transition-speed) var(--transition-curve),
+    transform var(--transition-speed) var(--transition-curve),
+    box-shadow var(--transition-speed) var(--transition-curve),
+    border-color var(--transition-speed) var(--transition-curve);
 }
 
 .btn--primary:hover,
@@ -249,13 +314,20 @@ h2 {
   color: var(--primary);
 }
 
+.btn--primary.btn--outline:hover {
+  background-color: var(--primary);
+  color: var(--dark);
+}
+
 .btn--secondary {
   background-color: var(--secondary);
   color: var(--white);
   border: solid var(--btn-border) var(--secondary);
   box-shadow: var(--shadow);
-  transition: background-color 0.2s ease-out, transform 0.2s ease-out,
-    box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+  transition: background-color var(--transition-speed) var(--transition-curve),
+    transform var(--transition-speed) var(--transition-curve),
+    box-shadow var(--transition-speed) var(--transition-curve),
+    border-color var(--transition-speed) var(--transition-curve);
 }
 
 .btn--secondary:hover,
@@ -277,8 +349,10 @@ h2 {
   color: var(--white);
   border: solid var(--btn-border) var(--tertiary);
   box-shadow: var(--shadow);
-  transition: background-color 0.2s ease-out, transform 0.2s ease-out,
-    box-shadow 0.2s ease-out, border-color 0.2s ease-out;
+  transition: background-color var(--transition-speed) var(--transition-curve),
+    transform var(--transition-speed) var(--transition-curve),
+    box-shadow var(--transition-speed) var(--transition-curve),
+    border-color var(--transition-speed) var(--transition-curve);
 }
 
 .btn--tertiary:hover,
@@ -295,9 +369,44 @@ h2 {
   color: var(--tertiary);
 }
 
+.btn--white {
+  background-color: var(--white);
+  color: var(--dark);
+  border: solid var(--btn-border) var(--white);
+  box-shadow: var(--shadow);
+  transition: background-color var(--transition-speed) var(--transition-curve),
+    transform var(--transition-speed) var(--transition-curve),
+    box-shadow var(--transition-speed) var(--transition-curve),
+    border-color var(--transition-speed) var(--transition-curve);
+}
+
+.btn--white:hover,
+.btn--white:active {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-variant);
+  background-color: var(--white-variant);
+  border-color: var(--white-variant);
+}
+
+.icon {
+  display: inline-flex;
+  width: 1.2rem;
+  height: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+
+.icon svg path {
+  fill: var(--dark);
+}
+
 @media (max-width: 1294px) {
   .container {
     max-width: 960px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
@@ -310,9 +419,36 @@ h2 {
     padding-right: 10px;
   }
   .btn {
-    padding: 0.8rem 2.2rem;
+    padding: 0.6rem 2rem;
   }
   .divider {
     height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  h5 {
+    font-size: 1rem;
+    line-height: 1;
   }
 }
